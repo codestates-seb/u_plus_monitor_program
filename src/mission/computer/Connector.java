@@ -1,18 +1,25 @@
 package mission.computer;
 
+import mission.config.Configure;
+import mission.displayer.Display;
 import mission.displayer.LGMonitor;
-import mission.displayer.Monitor;
 import mission.displayer.SamsungMonitor;
 
 import java.util.Scanner;
 
 // 컴퓨터 역할을 담당하는 컴퓨터 클래스 : 프로그램 제어 로직 포함
-public class Computer {
-    private Monitor monitor;
+public class Connector {
+    private Display monitor;
+    private Configure configure;
     private Scanner scanner = new Scanner(System.in);
 
 //    public Computer(Monitor monitor) {
 //        this.monitor = monitor;
+//    }
+
+//
+//    public Computer(SamsungMonitor samsungMonitor) {
+//        this.samsungMonitor = samsungMonitor;
 //    }
 
     // 프로그램 구동
@@ -42,7 +49,7 @@ public class Computer {
 
                 // 입력값이 3인 경우, 환경설정 메서드를 호출한다.
                 case "3":
-                    if (monitor != null) monitor.setting();
+                    if (monitor != null) configure.setting();
                     else System.out.println("No signal.");
                     break;
 
@@ -65,10 +72,12 @@ public class Computer {
         input = scanner.nextLine();
         if (input.equals("1")) {
             monitor = new SamsungMonitor("Samsung", 50, 10, true);
+            configure = new SamsungMonitor();
             monitor.connect();
         }
         else if (input.equals("2")) {
             monitor = new LGMonitor("LG", 60, 8, 1);
+            configure = new LGMonitor();
             monitor.connect();
         }
         else if (input.equals("3")) {

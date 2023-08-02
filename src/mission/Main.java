@@ -1,16 +1,11 @@
 package mission;
 
-import mission.displayer.LGMonitor;
-import mission.computer.Computer;
-import mission.displayer.SamsungMonitor;
+import mission.computer.Connector;
 
 public class Main {
     public static void main(String[] args) {
 
-
-        Computer computer = new Computer(
-//                new SamsungMonitor("Samsung", 50, 10, false)
-        );
-        computer.operate(); // 컴퓨터 동작 시작
+        Connector connector = new Connector();
+        connector.operate(); // 컴퓨터 동작 시작
     }
 }

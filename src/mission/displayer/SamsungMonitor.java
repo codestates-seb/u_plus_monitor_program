@@ -1,8 +1,12 @@
 package mission.displayer;
 
+import mission.config.Configure;
+
 // 삼성 모니터 만의 데이터 및 기능을 정의함.
-public class SamsungMonitor extends Monitor {
+public class SamsungMonitor extends Monitor implements Configure {
     private boolean blueLightBlock; // 블루라이트 필터
+
+    public SamsungMonitor() {}
 
     public SamsungMonitor(String company, int HORIZONTAL, int VERTICAL, boolean blueLightBlock) {
         super(company, HORIZONTAL, VERTICAL);

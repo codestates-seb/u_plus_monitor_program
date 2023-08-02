@@ -1,9 +1,15 @@
 package mission.displayer;
 
+import mission.config.Configure;
+
 // LG 모니터 만의 데이터 및 기능을 정의함.
-public class LGMonitor extends Monitor {
+public class LGMonitor extends Monitor implements Configure {
 
     private int monitorStandLevel; // 모니터 스탠드 높이
+
+    public LGMonitor() {
+        this.monitorStandLevel = 1;
+    }
 
     public LGMonitor(String company, int HORIZONTAL, int VERTICAL, int monitorStandLevel) {
         super(company, HORIZONTAL, VERTICAL);
