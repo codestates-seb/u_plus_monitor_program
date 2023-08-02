@@ -15,7 +15,7 @@ public class SamsungMonitor extends Monitor implements Displayer {
 
     @Override
     public void connect() {
-        super.connect();
+        super.connect("Samsung");
     }
 
     @Override

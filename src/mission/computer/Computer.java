@@ -38,7 +38,6 @@ public class Computer {
                     break;
                 case "4":
                     System.exit(0);
-                    break;
                 default:
                     System.out.println("Wrong command inserted.");
             }

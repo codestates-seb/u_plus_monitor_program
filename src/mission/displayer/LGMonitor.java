@@ -2,9 +2,9 @@ package mission.displayer;
 
 public class LGMonitor extends Monitor implements Displayer {
 
-    private boolean monitorStandLevel;
+    private int monitorStandLevel;
 
-    public LGMonitor(int HORIZONTAL, int VERTICAL, boolean monitorStandLevel) {
+    public LGMonitor(int HORIZONTAL, int VERTICAL, int monitorStandLevel) {
         super(HORIZONTAL, VERTICAL);
         this.monitorStandLevel = monitorStandLevel;
     }
@@ -16,7 +16,7 @@ public class LGMonitor extends Monitor implements Displayer {
 
     @Override
     public void connect() {
-        super.connect();
+        super.connect("LG");
     }
 
     @Override
@@ -31,13 +31,16 @@ public class LGMonitor extends Monitor implements Displayer {
         while (true) {
             printSetting();
             input = super.scanner.nextLine();
-            if (input.equals("1")) monitorStandLevel = !monitorStandLevel;
+            if (input.equals("1")) {
+                if (monitorStandLevel == 3) monitorStandLevel = 1;
+                else monitorStandLevel += 1;
+            }
             else if (input.equals("2")) break;
         }
     }
 
     private void printSetting() {
-        System.out.println("Blue light block : " + monitorStandLevel);
-        System.out.println("(1)_Toggle (2)_Back");
+        System.out.println("Monitor stand level : " + monitorStandLevel);
+        System.out.println("(1)_Up (2)_Back");
     }
 }

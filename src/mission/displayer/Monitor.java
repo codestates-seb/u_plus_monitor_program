@@ -17,10 +17,10 @@ public class Monitor {
         return isConnected;
     }
 
-    public void connect() {
+    public void connect(String brand) {
         if (!isConnected) {
             isConnected = true;
-            printDisplay("Standard monitor is connected.");
+            printDisplay(brand + " monitor is connected.");
         }
         else {
             printDisplay("Already connected.");
